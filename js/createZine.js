@@ -12,3 +12,13 @@ const pageFlip = new St.PageFlip(parentElement, {
   maxHeight: 750,
 });
 pageFlip.loadFromHTML(pages);
+
+document.addEventListener("keydown", (event) => {
+  if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+    event.preventDefault();
+    pageFlip.flipNext();
+  } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+    event.preventDefault();
+    pageFlip.flipPrev();
+  }
+});
